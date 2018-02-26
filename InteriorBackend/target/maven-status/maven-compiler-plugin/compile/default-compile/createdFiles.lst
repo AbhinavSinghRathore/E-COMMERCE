@@ -1,0 +1,10 @@
+com\InteriorBackend\model\UserDetail.class
+com\InteriorBackend\dao\UserDetailDAO.class
+com\InteriorBackend\dao\UserDetailDAOImpl.class
+com\InteriorBackend\dao\CategoryDAOImpl.class
+com\InteriorBackend\model\Category.class
+com\InteriorBackend\model\Product.class
+com\InteriorBackend\config\DBConfig.class
+com\InteriorBackend\dao\CategoryDAO.class
+com\InteriorBackend\dao\ProductDAO.class
+com\InteriorBackend\dao\ProductDAOImpl.class
