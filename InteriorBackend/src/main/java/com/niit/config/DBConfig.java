@@ -12,15 +12,21 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.dao.CartDAO;
+import com.niit.dao.CartDAOImpl;
 import com.niit.dao.CategoryDAO;
 import com.niit.dao.CategoryDAOImpl;
+import com.niit.dao.OrderDetailDAO;
+import com.niit.dao.OrderDetailDAOImpl;
 import com.niit.dao.ProductDAO;
 import com.niit.dao.ProductDAOImpl;
 import com.niit.dao.SupplierDAO;
 import com.niit.dao.SupplierDAOImpl;
 import com.niit.dao.UserDetailDAO;
 import com.niit.dao.UserDetailDAOImpl;
+import com.niit.model.CartItem;
 import com.niit.model.Category;
+import com.niit.model.OrderDetail;
 import com.niit.model.Product;
 import com.niit.model.Supplier;
 import com.niit.model.UserDetail;
@@ -31,6 +37,7 @@ import com.niit.model.UserDetail;
 @EnableTransactionManagement
 public class DBConfig 
 {
+	@Bean(name="dataSource")
 	public DataSource getH2DataSource()
 	{
 		DriverManagerDataSource dataSource=new DriverManagerDataSource();
@@ -59,6 +66,8 @@ public class DBConfig
 		factoryBuilder.addAnnotatedClass(Product.class);
 		factoryBuilder.addAnnotatedClass(UserDetail.class);
 		factoryBuilder.addAnnotatedClass(Supplier.class);
+		factoryBuilder.addAnnotatedClass(CartItem.class);
+		factoryBuilder.addAnnotatedClass(OrderDetail.class);
 		factoryBuilder.addProperties(hibernateProp);
 		
 		System.out.println("Creating SessionFactory Bean");
@@ -92,6 +101,20 @@ public class DBConfig
 	{
 		System.out.println("---Supplier DAO Implementation ---");
 		return new SupplierDAOImpl();
+	}
+	
+	@Bean(name="cartDAO")
+	public CartDAO getCartDAO()
+	{
+		System.out.println("----CART DAO Implementation---");
+		return new CartDAOImpl();
+	}
+	
+	@Bean(name="orderDetailDAO")
+	public OrderDetailDAO getOrderDetailDAO()
+	{
+		System.out.println("----OrderDetail DAO Implementation---");
+		return new OrderDetailDAOImpl();
 	}
 
 

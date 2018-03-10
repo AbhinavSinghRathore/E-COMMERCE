@@ -1,7 +1,10 @@
 package com.niit.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.niit.model.UserDetail;
 
 @Controller
 public class PageController 
@@ -26,8 +29,9 @@ public class PageController
 	}
 	
 	@RequestMapping("/register")
-	public String showRegister()
+	public String showRegister(Model m)
 	{
+		m.addAttribute("user",new UserDetail());
 		return "Register";
 	}
 	@RequestMapping("/contactus")

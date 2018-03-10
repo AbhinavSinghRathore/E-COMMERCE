@@ -27,11 +27,11 @@
 
 </form:form>
 
-<table align="center">
+<table align="center" cellspacing="2%">
 <tr>
-<td>CategoryID</td>
-<td>Category Name</td>
-<td>Category Desc</td>
+<td>CategoryID </td>&nbsp&nbsp&nbsp&nbsp&nbsp;
+<td> Category Name </td>>&nbsp&nbsp&nbsp&nbsp&nbsp;;
+<td> Category Desc </td>>&nbsp&nbsp&nbsp&nbsp&nbsp;
 <td>Operations</td>
 </tr>
 

@@ -33,6 +33,10 @@
 		<td>${ProductInfo.prodDesc}</td>
 	</tr>
 	<tr>
+	   <td colspan="2">
+	   <form action="<c:url value="/addtoCart/${ProductInfo.productId}"/>"/>
+	<table>
+	<tr>
 		<td>Quantity</td>
 		<td>
 		<select name="quantity">
@@ -43,10 +47,14 @@
 			<option value="5">5</option>
 		</select>
 		</td>
+		<td>
+		<input type="submit" value="AddToCart" class="btn btn-danger btn-block"/>
+		</td>
 	</tr>
 </table>
-
-
+</form>
+</td>
+</tr>
 </body>
 </html>
 

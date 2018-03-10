@@ -104,9 +104,18 @@ public class ProductController
 	}
 	@RequestMapping("/productDesc/{productId}")
 	public String productDesc(@PathVariable("productId")int productId,Model m) {
-		m.addAttribute("ProductInfo", productDAO.getProduct(productId));
-		m.addAttribute("categoryName", categoryDAO.getCategory(productDAO.getProduct(productId).getCategoryId()).getCategoryName());
+		
+		
+		Product product=productDAO.getProduct(productId);
+		String categoryName=categoryDAO.getCategory(product.getCategoryId()).getCategoryName();
+		m.addAttribute("ProductInfo",product);
+		m.addAttribute("categoryName",categoryName);
 		return "ProductDesc";
+		
+		
+		/*m.addAttribute("ProductInfo", productDAO.getProduct(productId));
+		m.addAttribute("categoryName", categoryDAO.getCategory(productDAO.getProduct(productId).getCategoryId()).getCategoryName());
+		return "ProductDesc";*/
 	}
 	
 	//Bhanoo Sir
