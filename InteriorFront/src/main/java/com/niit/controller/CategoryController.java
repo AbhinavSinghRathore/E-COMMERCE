@@ -77,7 +77,7 @@ public class CategoryController {
     	
     }
     @RequestMapping(value="/UpdateCategory",method=RequestMethod.POST)
-	public String updateCategoryInDB(@ModelAttribute("categoryInfo") Category category,@RequestParam("catname") String categoryName,@RequestParam("catdesc") String categoryDesc,Model m)
+	public String updateCategoryInDB(@ModelAttribute("categoryInfo") Category category,Model m)
 	{
 		//Category category=categoryDAO.getCategory(categoryId);
 		//category.setCategoryName(categoryName);
@@ -88,7 +88,7 @@ public class CategoryController {
 		List<Category> listCategories=categoryDAO.getCategories();
 		m.addAttribute("listCategories",listCategories);
 		
-		return "Category";
+		return "redirect:/category";
 	}
 
 

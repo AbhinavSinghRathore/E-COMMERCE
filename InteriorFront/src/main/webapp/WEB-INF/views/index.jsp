@@ -1,38 +1,28 @@
 <%@include file="/WEB-INF/views/Header.jsp" %>
-<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:100%;height:500px;">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img class="img-fluid" src="<c:url value="/resources/images/oneplus-5t-star-wars-edition.jpg"/>" style="width:100%;height:500px">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide" src="<c:url value="/resources/images/8-spectacular-jquery-slider-plugins.jpg"/>" alt="First slide" style="height:25rem;">
+          </div>
+          <div class="carousel-item">
+            <img class="second-slide" src="<c:url value="/resources/images/Dian-2-1024x683.jpg"/>" alt="Second slide" style="height:25rem;">
+          </div>
+          <div class="carousel-item">
+            <img class="third-slide" src="<c:url value="/resources/images/chuttersnap-176805-unsplash.jpg"/>" alt="Third slide" style="height:25rem;">           
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-
-      <div class="item">
-        <img class="img-fluid" src="<c:url value="/resources/images/laptop.png"/>" style="width:100%;height:500px">
-      </div>
-    
-      <div class="item">
-        <img class="img-fluid" src="<c:url value="/resources/images/images.jpg"/>" style="width:100%;height:500px">
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-
-
-</body>
-</html>
+<%@include file="footer.jsp"%>

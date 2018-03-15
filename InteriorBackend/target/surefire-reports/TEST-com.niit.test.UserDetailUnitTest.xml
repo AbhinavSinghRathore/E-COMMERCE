@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.niit.test.CategoryUnitTest" time="0.119" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="com.niit.test.UserDetailUnitTest" time="0.142" errors="0" skipped="1">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_151\jre\bin"/>
@@ -61,5 +61,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.niit.test.CategoryUnitTest" name="addCategoryTest" time="0.119"/>
+  <testcase classname="com.niit.test.UserDetailUnitTest" name="registerUser" time="0.07"/>
+  <testcase classname="com.niit.test.UserDetailUnitTest" name="updateDetail" time="0.072">
+    <skipped/>
+  </testcase>
 </testsuite>

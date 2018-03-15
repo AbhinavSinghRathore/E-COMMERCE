@@ -2,6 +2,8 @@ package com.niit.test;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -25,17 +27,17 @@ public class UserDetailUnitTest {
 		userDetailDAO=(UserDetailDAO)context.getBean("userDetailDAO");
 	}
 	
-	
+	@Ignore
 	@Test
 	public void registerUser()
 	{
 		UserDetail ud=new UserDetail();
-		ud.setUsername("Abhinav");
+		ud.setUsername("Abhinav Singh");
 		ud.setPassword("007");
-		ud.setRole("user");
+		ud.setRole("ROLE_ADMIN");
 		ud.setEnabled(true);
-		ud.setCustomerName("Bittu");
-		ud.setMobileNo("0123456789");
+		//ud.setCustomerName("Bittu");
+		ud.setMobileNo("9557957537");
 		ud.setEmailId("abhi9singh202@gmail.com");
 		ud.setAddress("lko");
 		assertTrue("Problem in UserDetail Insertion",userDetailDAO.registerUser(ud));
@@ -50,6 +52,12 @@ public void updateDetail()
 		ud.setCustomerName("Singh");
 		
 }
+	
+	@Test
+	public void getlisttest() {
+		List<UserDetail> ulist=userDetailDAO.getAllUser();
+		assertNotNull("Got error", ulist);
+	}
 }
 
 

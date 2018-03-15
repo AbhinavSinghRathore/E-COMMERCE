@@ -11,7 +11,8 @@
     </tr>
     <tr>
         <td>Your Name </td>
-        <td><form:input path="username"/></td>  
+        <td><form:input path="username" style="width:100%;"/><br/><span style="color:red;">${usernameMsg}</span></td>
+         
     </tr>
     <form:hidden path="role" value="ROLE_USER"/>
     
@@ -19,17 +20,18 @@
     
      <tr>
          <td>Mobile number</td>
-         <td><form:input path="mobileNo"/></td>
+         <td><form:input path="mobileNo" style="width:100%;"/></td>
         </tr>
         
         <tr>
          <td>Email address</td>
-         <td><form:input path="emailId"/></td>
+         <td><form:input path="emailId" style="width:100%;"/><br/><span style="color:red;">${emailMsg}</span></td>
+        
         </tr>
          
     <tr>
         <td>Password</td>
-        <td><form:input path="password"/></td>
+        <td><form:input path="password" style="width:100%;"/></td>
     </tr>
     <tr bgcolor="cyan">
         <td colspan="2">

@@ -7,12 +7,12 @@ import javax.transaction.Transactional;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.junit.Ignore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
 import com.niit.model.Supplier;
+import com.niit.dao.SupplierDAO;
+
 
 @Repository("supplierDAO")
 
@@ -51,7 +51,6 @@ public class SupplierDAOImpl implements SupplierDAO {
 	
 	//deleteCategory()
 	@Transactional
-	@Ignore
 	
 	//listCategories()
 	

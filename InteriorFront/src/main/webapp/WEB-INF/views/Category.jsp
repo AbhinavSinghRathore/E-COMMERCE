@@ -17,8 +17,8 @@
 <td><form:input path="cateogryDesc"/></td>
 </tr>
 <tr>
-<td colspan="2"><input type="submit" style="display:block;width:100px;padding:10px;background:#3ddd;border-radius:8px;" value="SUBMIT"/></td>
-<td><a href="/InteriorFront/category" style="display:block;padding:10px;background:#3ddd;border-radius:8px;box-shadow:3px 0px 3px 8px #3fff">Reset</a></td>
+<td colspan="2"><input type="submit" class="btn btn-primary" value="SUBMIT"/></td>
+<td><a href="/InteriorFront/category" class="btn btn-primary">Reset</a></td>
 <td>
 </tr>
 </table>

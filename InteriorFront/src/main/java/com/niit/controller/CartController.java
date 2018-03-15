@@ -57,11 +57,18 @@ public class CartController
 	}
 	
 	@RequestMapping("/updateCartItem/{cartItemId}")
-	public String updateCartItem(@PathVariable("cartItemId") int cartItemId,@RequestParam("qty")int quantity,Model m,HttpSession session)
+	public String updateCartItem(@PathVariable("cartItemId")int cartItemId,@RequestParam("qty")int quantity,Model m,HttpSession session)
 	{
+		System.out.println(cartItemId);
 		
 		CartItem cartItem=cartDAO.getCartItem(cartItemId);
-		Product product=productDAO.getProduct(cartItem.getProductId());
+		
+		int p=cartItem.getProductId();
+		
+		Product product=productDAO.getProduct(p);
+		
+		System.out.println(p);
+		
 		cartItem.setQuantity(quantity);
 		cartItem.setSubtotal(quantity*product.getPrice());
 		
@@ -71,6 +78,7 @@ public class CartController
 		List<CartItem> listCartItems=cartDAO.getCartItems(username);
 		m.addAttribute("cartList",listCartItems);
 		m.addAttribute("grandTotal",this.grandTotal(listCartItems));
+		m.addAttribute("cartList",cartDAO.getCartItems(username));
 		
 		
 		System.out.println(cartItem.getProductId());

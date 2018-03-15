@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: com.niit.test.ProductUnitTest
+Test set: com.niit.test.CartUnitTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.45 sec
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 10.505 sec

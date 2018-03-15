@@ -3,7 +3,7 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"  %>
 
 <h3 align="center">Category Page</h3>
-<form:form action="updateCategory" method="post" commandName="categoryInfo">
+<form:form action="${pageContext.request.contextPath}/UpdateCategory" method="post" commandName="categoryInfo">
 <table align="center">
 <tr bgcolor="pink">
 <td colspan="2">Update Category</td>

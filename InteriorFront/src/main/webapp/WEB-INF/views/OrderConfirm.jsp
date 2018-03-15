@@ -10,7 +10,7 @@
 	    <td>Product ID</td>
 	    <td>Quantity</td>
 	    <td>SubTotal</td>
-	    <td>Operation</td>
+	    
 	  </tr>
 	    
 <c:forEach items="${cartList}" var="cartItem">

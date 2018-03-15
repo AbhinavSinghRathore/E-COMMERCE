@@ -1,5 +1,7 @@
 package com.niit.controller;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,20 +13,27 @@ public class PageController
 {
 	
 	@RequestMapping("/")
-	public String showHomePage()
+	public String showHomePage(Model m)
 	{
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+		m.addAttribute("role", auth.getAuthorities().toString());
 		return "index";
 	}
 	
 	@RequestMapping("/login")
-	public String showLogin()
+	public String showLogin(Model m)
 	{
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+		m.addAttribute("role", auth.getAuthorities().toString());
+		System.out.println(auth.getAuthorities().toString());
 		return "Login";
 	}
 	
 	@RequestMapping("/aboutus")
-	public String showAboutUs()
+	public String showAboutUs(Model m)
 	{
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+		m.addAttribute("role", auth.getAuthorities().toString());
 		return "AboutUs";
 	}
 	
@@ -32,11 +41,15 @@ public class PageController
 	public String showRegister(Model m)
 	{
 		m.addAttribute("user",new UserDetail());
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+		m.addAttribute("role", auth.getAuthorities().toString());
 		return "Register";
 	}
 	@RequestMapping("/contactus")
-	public String showcontactus()
+	public String showcontactus(Model m)
 	{
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+		m.addAttribute("role", auth.getAuthorities().toString());
 		return "ContactUs";
 	}
 	

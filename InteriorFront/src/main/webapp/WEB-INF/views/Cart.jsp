@@ -14,7 +14,7 @@
 	  </tr>
 	    
 <c:forEach items="${cartList}" var="cartItem">
-     <form action="<c:url value="/updateCartItem/${cartItem.cartId}"/>" method="get">
+     <form action="<c:url value="/updateCartItem/${cartItem.cartItemId}"/>" method="get">
          <tr class="info">
          
          <td>${cartItem.productId}</td>

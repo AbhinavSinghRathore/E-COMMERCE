@@ -2,13 +2,13 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<h3 align="center">Product Page</h3>
+<h3 align="center">Products</h3>
 
 <table align="center" class="table">
-	<tr class="danger">
+	<!--  <tr class="danger">
 		<td colspan="3">Product Detail</td>	
 	</tr>
-	<tr class="info">
+	<tr class="info">-->
 <c:forEach items="${listProducts}" var="product">
 	
 		<td>

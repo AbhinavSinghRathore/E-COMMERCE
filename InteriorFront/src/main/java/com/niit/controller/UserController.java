@@ -30,6 +30,8 @@ public class UserController
 	{
 		List<Product> listProducts=productDAO.listProducts();
 		m.addAttribute("listProducts", listProducts);
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+		m.addAttribute("role", auth.getAuthorities().toString());
 		
 		return "UserHome";
 	}
@@ -69,8 +71,12 @@ public class UserController
     				session.setAttribute("username", username);
     			}
     		}
+    		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+    		m.addAttribute("role", auth.getAuthorities().toString());
+    		System.out.println(auth.getAuthorities().toString());
+    		
     			  
-    	  return page;
+    	  return "redirect:/";
     	  
     
     	  

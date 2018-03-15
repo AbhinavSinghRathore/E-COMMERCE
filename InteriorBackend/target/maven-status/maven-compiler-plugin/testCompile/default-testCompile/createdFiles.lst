@@ -1,3 +1,7 @@
-com\niit\test\CategoryUnitTest.class
-com\niit\test\ProductUnitTest.class
+com\niit\test\UserDetailUnitTest.class
+com\niit\test\CartUnitTest.class
 com\niit\test\DemoTest.class
+com\niit\test\CategoryUnitTest.class
+com\niit\test\OrderDetailUnitTest.class
+com\niit\test\ProductUnitTest.class
+com\niit\test\SupplierUnitTest.class

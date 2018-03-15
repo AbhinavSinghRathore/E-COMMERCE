@@ -36,7 +36,7 @@ public class OrderDetailUnitTest
 	{
 		
 		OrderDetail orderDetail=new OrderDetail();
-		orderDetail.setCartId(1010);
+		orderDetail.setCartId(1012);
 		orderDetail.setOrderDate(new Date());
 		orderDetail.setUsername("Vicky");
 		orderDetail.setTotalAmount(1000);

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -47,4 +48,14 @@ public  class UserDetailDAOImpl implements UserDetailDAO
 		
 		
 	}
+
+@SuppressWarnings("unchecked")
+@Override
+public List<UserDetail> getAllUser() {
+	
+	Session session=sessionFactory.openSession();
+	List<UserDetail> ulist=session.createQuery("from UserDetail").list();
+	
+	return ulist;
+}
 }

@@ -32,7 +32,7 @@ public class ProductController
 	@Autowired
 	ProductDAO productDAO;
 	
-	@RequestMapping("/product")
+	@RequestMapping("/product")//from admin user v r getting this 
 	public String showProductPage(Model m)
 	{
 		Product product=new Product();
@@ -84,7 +84,7 @@ public class ProductController
 
 
 	
-	public LinkedHashMap<Integer,String> listCategories()
+	public LinkedHashMap<Integer,String> listCategories() // it is showing the category list
 	{
 		List<Category> listCategories=categoryDAO.getCategories();
 		LinkedHashMap<Integer,String> catlist=new LinkedHashMap<Integer,String>();
