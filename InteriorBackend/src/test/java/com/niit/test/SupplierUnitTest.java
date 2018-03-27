@@ -2,7 +2,10 @@ package com.niit.test;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -34,13 +37,13 @@ public class SupplierUnitTest {
 		assertTrue("Problem in Supplier Insertion",supplierDAO.addSupplier(sp));
 	}
 
-	/*@Test
+	@Ignore
 	public void getSupplierTest()
 	{
-		assertNotNull("Problem in get Supplier",supplierDAO.getsupplier(1));
-	}*/
+		assertNotNull("Problem in get Supplier",supplierDAO.getSupplier(1));
+	}
 
-/* @Test
+ @Ignore
 public void listSuppliersTest()
 {
 	List<Supplier> listSuppliers=supplierDAO.getSuppliers();
@@ -52,5 +55,6 @@ public void listSuppliersTest()
 		System.out.println(supplier.getSupplierName()+":::");
 		System.out.println(supplier.getSupplierInfo()+":::");
 		
-	}*/
+	}
+}
 }

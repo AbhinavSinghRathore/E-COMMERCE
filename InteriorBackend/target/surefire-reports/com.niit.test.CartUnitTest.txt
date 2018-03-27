@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.niit.test.CartUnitTest
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 10.505 sec
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 14.696 sec

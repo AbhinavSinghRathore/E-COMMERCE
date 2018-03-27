@@ -54,7 +54,6 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>${h2.version}</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -67,17 +66,27 @@
 			<artifactId>spring-web</artifactId>
 			<version>4.3.4.RELEASE</version>
 		</dependency>
-		
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
-<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-beans</artifactId>
-    <version>4.3.4.RELEASE</version>
-</dependency>
-		
 
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-beans -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>4.3.4.RELEASE</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.4.1.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+		
 	</dependencies>
-	
+
 	<build>
 		<finalName>InteriorBackend</finalName>
 		<plugins>
@@ -91,9 +100,9 @@
 			</plugin>
 		</plugins>
 	</build>
-	
-	
-	
-	
+
+
+
+
 </project>
 

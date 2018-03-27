@@ -25,7 +25,7 @@
 		<td>${categoryName}</td>
 	</tr>
 	<tr bgcolor="pink">
-		<td>Supplier ID</td>
+		<td>Supplier Name</td>
 		<td>${ProductInfo.supplierId}</td>
 	</tr>
 	<tr bgcolor="pink">

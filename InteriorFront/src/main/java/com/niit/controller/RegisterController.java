@@ -2,6 +2,8 @@ package com.niit.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -28,6 +30,11 @@ public class RegisterController
 public String insertUsers(@ModelAttribute("user") UserDetail userDetail,Model m)
 		
 {
+	if(userDetail.getUsername().equals("")||userDetail.getEmailId().equals("")||userDetail.getMobileNo().equals("")||userDetail.getPassword().equals(""))
+	{
+		m.addAttribute("null", "* Fields can not be empty !");
+		return "Register";
+	}
 	
 	List<UserDetail> userlist=userDetailDAO.getAllUser();
 	

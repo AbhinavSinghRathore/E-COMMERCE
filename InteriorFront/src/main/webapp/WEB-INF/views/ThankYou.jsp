@@ -5,6 +5,7 @@
 <div class="container">
 
 <h3 align="center">Thank You for Shopping</h3>
+<h4 align="center">Your order has been placed successfully.</h4>
 <h5 align="center">We hope to see you again</h5>
 
 </div>

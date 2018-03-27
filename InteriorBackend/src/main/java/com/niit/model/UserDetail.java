@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 @Entity
 @Table
 public class UserDetail
@@ -14,14 +15,16 @@ public class UserDetail
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
-	
+	@NotNull(message="*Username can not be null.")
 	private String username;
+	@NotNull(message="*Password can not be null.")
 	private String password;
-	private String role;//admin|user
-	private boolean enabled;//true|false
+	private String role;
+	private boolean enabled;
 
 	private String customerName;
 	private String mobileNo;
+	@NotNull(message="*Email Address can not be null.")
 	private String emailId;
 	private String address;
 	public int getUserId() {

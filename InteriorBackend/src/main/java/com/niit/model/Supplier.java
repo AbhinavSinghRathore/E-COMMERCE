@@ -12,6 +12,8 @@ public class Supplier {
 	@Id
 	@GeneratedValue
 private int supplierId;
+	private String supplierName;
+	private String supplierInfo;
 	
 	public int getSupplierId() {
 		return supplierId;
@@ -31,7 +33,6 @@ private int supplierId;
 	public void setSupplierInfo(String supplierInfo) {
 		this.supplierInfo = supplierInfo;
 	}
-	private String supplierName;
-	private String supplierInfo;
+	
 
 }

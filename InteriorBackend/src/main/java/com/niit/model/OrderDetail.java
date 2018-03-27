@@ -14,9 +14,17 @@ public class OrderDetail
 
 {
     @Id
-   // @GeneratedValue(strategy=GenerationType.AUTO)
+   @GeneratedValue(strategy=GenerationType.AUTO)
+    int orderId;
     int cartId;
-    String Username;
+   
+    public int getOrderId() {
+		return orderId;
+	}
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+	String Username;
     Date orderDate;
     int totalAmount;
     String shippingAddress;

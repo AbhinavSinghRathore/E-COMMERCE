@@ -2,32 +2,26 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<h3 align="center">Products</h3>
+<h1>${category.categoryName}</h1>
+<h2>${category.cateogryDesc}</h2>
 
 <table align="center" class="table">
 	<!--  <tr class="danger">
 		<td colspan="3">Product Detail</td>	
-	</tr>-->
+	</tr>
+	<tr class="info">-->
 	
-	<tr class="info">
-	<c:set var="i" value="1"/>
+	
 <c:forEach items="${listProducts}" var="product">
 	
 		<td>
-			 <img src="<c:url value="/resources/images/${product.productId}.jpg"/>" width="300" height="300"/>
+			 <img src="<c:url value="/resources/images/${product.productId}.jpg"/>" width="100" height="100"/>
 			<br/>
 			<a href="<c:url value="/productDesc/${product.productId}"/>">${product.productName}</a>
 			<br/>INR. ${product.price} /-
-			
 		</td>
-		<c:if test="${i%3==0}" >
-		</tr>
-		<tr>
-		</c:if>
 	
-<c:set var="i" value="${i+1}"/>
 </c:forEach>
-
 	</tr>
 </table>
 </body>

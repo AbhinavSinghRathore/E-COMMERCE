@@ -34,7 +34,14 @@
 	
 	<tr bgcolor="pink">
 	    <td>Supplier</td>
-	    <td><form:input path="supplierId"/></td>
+	    
+	    <td>
+	<form:select path="supplierId">
+	<form:option value="0" label="---select---"/>
+	<form:options items="${suplist}"/>
+	</form:select>
+	
+	</td>
 	    </tr>
 	    
 	    <tr>
@@ -63,7 +70,35 @@
  </table>
  </form:form>
  
- 
+ <table align="center" cellspacing="2%">
+<tr>
+<td>ProductID </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td> Product Name </td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td> Product Desc</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td>categoryId</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td>supplierId</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td>Product price</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td>Product stock</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td>Product views</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<td>Operations</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</tr>
+
+<c:forEach items="${listProduct}" var="product">
+
+<tr>
+
+<td>${product.productId}</td>
+<td>${product.productName}</td>
+<td>${product.prodDesc}</td>
+<td>${product.categoryId}</td>
+<td>${product.supplierId}</td>
+<td>${product.price}</td>
+<td>${product.stock}</td>
+<td>${product.views}</td>
+<td><a href="<c:url value="/deleteProduct/${product.productId}"/>">Delete</a>
+</tr>
+</c:forEach>
+</table>
  
  </body>
- </html>	     
+ </html>   

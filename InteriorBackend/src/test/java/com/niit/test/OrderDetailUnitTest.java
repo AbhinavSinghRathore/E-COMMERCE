@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Date;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -29,14 +30,13 @@ public class OrderDetailUnitTest
 		orderDetailDAO=(OrderDetailDAO)context.getBean("orderDetailDAO");
 	}
 
-	
+	@Ignore
 	@Test
-	
 	public void confirmorderDetailTest()
 	{
 		
 		OrderDetail orderDetail=new OrderDetail();
-		orderDetail.setCartId(1012);
+		orderDetail.setCartId(1014);
 		orderDetail.setOrderDate(new Date());
 		orderDetail.setUsername("Vicky");
 		orderDetail.setTotalAmount(1000);

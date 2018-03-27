@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="com.niit.test.CategoryUnitTest" time="0.119" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="com.niit.test.CategoryUnitTest" time="0.188" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_151\jre\bin"/>
@@ -27,7 +27,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\Users\IBM\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf3259613510954679955.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\IBM\eclipse-workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf7838182206702970705.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_151\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_161/bin/server;C:/Program Files/Java/jre1.8.0_161/bin;C:/Program Files/Java/jre1.8.0_161/lib/amd64;C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Java\jdk1.8.0_151\bin;C:\apache-maven-3.5.2-bin\apache-maven-3.5.2\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\eclipse-jee-oxygen-R-win32-x86_64 (2)\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -61,5 +61,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.niit.test.CategoryUnitTest" name="addCategoryTest" time="0.119"/>
+  <testcase classname="com.niit.test.CategoryUnitTest" name="addCategoryTest" time="0.188"/>
 </testsuite>

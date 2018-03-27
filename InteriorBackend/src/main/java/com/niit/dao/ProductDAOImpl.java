@@ -10,7 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.niit.model.Category;
+
 import com.niit.model.Product;
 
 
@@ -77,10 +77,19 @@ public class ProductDAOImpl implements ProductDAO
 	
 
 	
+	@SuppressWarnings("unchecked")
 	public List<Product> listProducts() 
 	{
 		Session session=sessionFactory.openSession();
 		Query query=session.createQuery("from Product");
+		List<Product> listProducts=(List<Product>)query.list();
+		return listProducts;
+	}
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Product> listByCategory(int catId) {
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Product where categoryid=:catId order by views desc").setParameter("catId", catId);
 		List<Product> listProducts=(List<Product>)query.list();
 		return listProducts;
 	}

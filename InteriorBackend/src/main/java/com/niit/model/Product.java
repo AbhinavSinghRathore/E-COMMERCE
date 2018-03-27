@@ -22,6 +22,7 @@ public class Product
 	private int price;
 	private int stock;
 	private String prodDesc;
+	private int views;
 	
 	@Transient
 	MultipartFile m;
@@ -66,5 +67,11 @@ public class Product
 	}
 	public void setProdDesc(String prodDesc) {
 		this.prodDesc = prodDesc;
+	}
+	public int getViews() {
+		return views;
+	}
+	public void setViews(int views) {
+		this.views = views;
 	}	
 }

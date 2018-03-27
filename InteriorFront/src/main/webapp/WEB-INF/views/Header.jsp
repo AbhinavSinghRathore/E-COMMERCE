@@ -13,7 +13,7 @@
  
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       
-        <a class="navbar-brand" href="${pageContext.request.contextPath}/">Home Interior</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/">My Shop</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -26,14 +26,18 @@
             <li><a class="nav-link"  href="${pageContext.request.contextPath}/login">Login</a></li>
             <li><a class="nav-link"  href="${pageContext.request.contextPath}/register">Register</a></li>
             </c:if>
+         
             <li><a class="nav-link"  href="${pageContext.request.contextPath}/aboutus">About Us</a></li>
             <li><a class="nav-link"  href="${pageContext.request.contextPath}/contactus">Contact Us</a></li>
+         
          <c:if test="${role=='[ROLE_ADMIN]'}">
             <li><a class="nav-link"  href="${pageContext.request.contextPath}/category">Category</a></li>
             <li><a class="nav-link"  href="${pageContext.request.contextPath}/product">Product</a></li>
             </c:if>
+         
             <li><a class="nav-link"  href="${pageContext.request.contextPath}/productPage">ProductPage</a></li>
-            <li><a class="nav-link"  href="${pageContext.request.contextPath}/updateProduct">Manage Product</a></li>
+            
+         
          <c:if test="${role!='[ROLE_ANONYMOUS]'}">
             <li><a class="nav-link"  href="${pageContext.request.contextPath}/perform_logout">Logout</a></li>
              </c:if>

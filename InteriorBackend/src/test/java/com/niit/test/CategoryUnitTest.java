@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -36,26 +37,26 @@ public class CategoryUnitTest
 		assertTrue("Problem in Category Insertion",categoryDAO.addCategory(category));
 	}
 	
-	/*@Test
+	@Ignore
 	public void getCategoryTest()
 	{
 		assertNotNull("Problem in get Category",categoryDAO.getCategory(2));
-	}*/
-   /* @Test
+	}
+   @Ignore
     public void deleteCategoryTest()
     {
     	Category category=categoryDAO.getCategory(4);
     	category.setCategoryName("L Sofa Model");
     	assertTrue("Problem in deletion:", categoryDAO.deleteCategory(category));
-    }*/
-   // @Test
-   /* public void updateCategoryTest()
+    }
+    @Ignore
+    public void updateCategoryTest()
     {
     	Category category=categoryDAO.getCategory(3);
     	category.setCategoryName("L Sofa Model");
     	assertTrue("Problem in Updation", categoryDAO.updateCategory(category));
-    }*/
-   /* @Test
+    }
+    @Ignore
     public void listCategoriesTest()
     {
     	List<Category> listCategories=categoryDAO.getCategories();
@@ -69,7 +70,7 @@ public class CategoryUnitTest
     		
     	}
     	
-    }*/
+    }
 
 
     
