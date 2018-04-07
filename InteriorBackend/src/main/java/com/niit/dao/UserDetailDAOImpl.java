@@ -58,4 +58,11 @@ public List<UserDetail> getAllUser() {
 	
 	return ulist;
 }
+
+@Transactional
+@Override
+public UserDetail getUserByUserName(String username) {
+	
+	return (UserDetail)sessionFactory.getCurrentSession().createQuery("from UserDetail where username=:username").setParameter("username",username).uniqueResult();
+}
 }

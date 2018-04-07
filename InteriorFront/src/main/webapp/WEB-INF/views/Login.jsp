@@ -1,7 +1,10 @@
-<%@include file="Header.jsp" %>
+ <%@include file="Header.jsp" %>
+ <div class="cont">
+
+
 
 <form action="perform_login" method="post">
-<table align="center" border="1">
+<table align="center" border="1" class="table table-hover">
     <tr bgcolor="cyan">
         <td colspan="2"><center>Login</center></td>
     </tr>
@@ -11,15 +14,19 @@
     </tr>
     <tr>
         <td>Password</td>
-        <td><input type="password" name="password" /></td>
+        <td><input type="password" name="password" /><br>
+            <left style="color:red;">${Message}</left>
+        
+        </td>
     </tr>
     <tr bgcolor="cyan">
         <td colspan="2">
         <center><input type="submit" value="Continue"/></center>
         </td>
     </tr>
+    
 </table>
 </form>
+</div>
 
-</body>
-</html>
+<%@include file="footer.jsp"%>

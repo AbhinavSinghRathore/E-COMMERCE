@@ -15,8 +15,10 @@ import com.niit.dao.CartDAO;
 import com.niit.dao.CategoryDAO;
 import com.niit.dao.OrderDetailDAO;
 import com.niit.dao.ProductDAO;
+import com.niit.dao.UserDetailDAO;
 import com.niit.model.CartItem;
 import com.niit.model.OrderDetail;
+import com.niit.model.UserDetail;
 
 @Controller
 public class OrderController {
@@ -28,7 +30,11 @@ public class OrderController {
 
 	@Autowired
 	CartDAO cartDAO;
-
+	
+	@Autowired
+	UserDetailDAO userDetailDAO;
+	
+	
 	@Autowired
 	OrderDetailDAO orderDAO;
 
@@ -59,7 +65,14 @@ public class OrderController {
 		order.setCartId(cartid);
 		orderDAO.confirmOrderDetail(order);
 		cartDAO.deleteCartItem(cartDAO.getCartItem(cartItemId));
-
+		
+		System.out.println(session.getAttribute("username").toString());
+		
+		//updating User Address According to ShipAddress
+		UserDetail user=userDetailDAO.getUserByUserName(session.getAttribute("username").toString());
+		user.setAddress(shipAddr);
+		userDetailDAO.updateDetail(user);
+		
 		return "ThankYou";
 	}
 

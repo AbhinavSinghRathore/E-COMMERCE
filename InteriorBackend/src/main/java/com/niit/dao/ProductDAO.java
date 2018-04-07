@@ -13,5 +13,6 @@ public interface ProductDAO
 	public List<Product> listProducts();
 	
 	public List<Product> listByCategory(int catId);
+	public List<Product> getBySearch(String search);
 	
 }

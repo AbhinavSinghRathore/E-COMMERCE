@@ -6,6 +6,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.dao.CategoryDAO;
 import com.niit.model.UserDetail;
@@ -26,8 +27,14 @@ public class PageController
 	}
 	
 	@RequestMapping("/login")
-	public String showLogin(Model m)
+	public String showLogin(@RequestParam(name="error",required=false)String error,Model m)
 	{
+		
+		if(error!=null) {
+			m.addAttribute("Message", "username or password is invalid");
+			System.out.println("Something is wrong");
+		}
+		
 		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
 		m.addAttribute("role", auth.getAuthorities().toString());
 		System.out.println(auth.getAuthorities().toString());

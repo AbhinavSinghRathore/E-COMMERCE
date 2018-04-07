@@ -49,6 +49,7 @@ public class ProductUnitTest
 	{
 		assertNotNull("Problem in get Product",productDAO.getProduct(2));
 	}
+	@Ignore
    @Test
     public void deleteProductTest()
     {

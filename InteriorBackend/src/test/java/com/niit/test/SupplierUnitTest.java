@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.dao.SupplierDAO;
+import com.niit.model.Category;
 import com.niit.model.Supplier;
 
 public class SupplierUnitTest {
@@ -33,7 +34,7 @@ public class SupplierUnitTest {
 	{
 		Supplier sp=new Supplier();
 		sp.setSupplierName("Ab");
-		sp.setSupplierInfo("Good supplier");
+		sp.setSupplierDesc("Good supplier");
 		assertTrue("Problem in Supplier Insertion",supplierDAO.addSupplier(sp));
 	}
 
@@ -42,6 +43,20 @@ public class SupplierUnitTest {
 	{
 		assertNotNull("Problem in get Supplier",supplierDAO.getSupplier(1));
 	}
+	/*@Ignore
+	 public void deleteSupplierTest()
+	    {
+	    	Supplier supplier=supplierDAO.getSupplier(4);
+	    	supplier.setSupplierName("Indus");
+	    	assertTrue("Problem in deletion:", supplierDAO.deleteCategory(category));
+	    }
+	    @Ignore
+	    public void updateCategoryTest()
+	    {
+	    	Category category=categoryDAO.getCategory(3);
+	    	category.setCategoryName("L Sofa Model");
+	    	assertTrue("Problem in Updation", categoryDAO.updateCategory(category));
+	    }*/
 
  @Ignore
 public void listSuppliersTest()
@@ -53,7 +68,7 @@ public void listSuppliersTest()
 	{
 		System.out.println(supplier.getSupplierId()+":::");
 		System.out.println(supplier.getSupplierName()+":::");
-		System.out.println(supplier.getSupplierInfo()+":::");
+		System.out.println(supplier.getSupplierDesc()+":::");
 		
 	}
 }

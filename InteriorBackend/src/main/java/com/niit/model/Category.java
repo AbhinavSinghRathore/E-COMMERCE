@@ -4,6 +4,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table
 public class Category 
@@ -11,8 +13,9 @@ public class Category
 	@Id
 	@GeneratedValue
 	private int categoryId;
-	
+	@NotBlank(message="* category name cannot be null.")
 	private String categoryName;
+	@NotBlank(message="* category description cannot be null.")
 	private String cateogryDesc;
 	
 	public int getCategoryId() 

@@ -27,14 +27,17 @@ public class RegisterController
 	
 	
 @RequestMapping(value ="/Register", method = RequestMethod.POST)
-public String insertUsers(@ModelAttribute("user") UserDetail userDetail,Model m)
+public String insertUsers(@Valid @ModelAttribute("user") UserDetail userDetail,BindingResult result,Model m)
 		
 {
-	if(userDetail.getUsername().equals("")||userDetail.getEmailId().equals("")||userDetail.getMobileNo().equals("")||userDetail.getPassword().equals(""))
+	if(result.hasErrors()) {
+		return "Register";
+	}
+	/*if(userDetail.getUsername().equals("")||userDetail.getEmailId().equals("")||userDetail.getMobileNo().equals("")||userDetail.getPassword().equals(""))
 	{
 		m.addAttribute("null", "* Fields can not be empty !");
 		return "Register";
-	}
+	}*/
 	
 	List<UserDetail> userlist=userDetailDAO.getAllUser();
 	

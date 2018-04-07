@@ -1,7 +1,10 @@
 com\niit\controller\UserController.class
+com\niit\Exception\ExceptionController.class
 com\niit\controller\CategoryController.class
+com\niit\controller\SupplierController.class
 com\niit\controller\ProductController.class
 com\niit\controller\CartController.class
 com\niit\controller\OrderController.class
 com\niit\controller\PageController.class
 com\niit\controller\RegisterController.class
+com\niit\Exception\ProductNotFoundException.class

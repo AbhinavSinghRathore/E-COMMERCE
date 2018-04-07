@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+.cont{
+	
+	margin-top:45px;
+}
+header{
+	    position: absolute;
+    top: 0px;
+    width: 100%;
+}

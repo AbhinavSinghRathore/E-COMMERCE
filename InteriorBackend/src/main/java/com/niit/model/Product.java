@@ -7,20 +7,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table
 public class Product 
 {
+
+	
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int productId;
+	@NotBlank(message="*Product name cannot be null")
 	private String productName;
+	@Range(min=1,message="Category cannot be null")
 	private int categoryId;
+	@Range(min=1,message="supplier cannot be null")
 	private int supplierId;
+	@Range(min=1,message="Price cannot be 0")
 	private int price;
+	@Range(min=1,message="Stock cannot be 0")
 	private int stock;
+	@NotBlank(message="Description cannnot be null")
 	private String prodDesc;
 	private int views;
 	

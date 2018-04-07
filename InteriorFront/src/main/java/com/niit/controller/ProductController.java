@@ -7,6 +7,9 @@ import java.io.FileOutputStream;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import javax.validation.Valid;
+
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -64,8 +67,21 @@ public class ProductController
 	}
 	
 	@RequestMapping(value="/InsertProduct",method=RequestMethod.POST)
-	public String addProduct(@ModelAttribute("product")Product product,@RequestParam("pimage") MultipartFile filedet,Model m)
+	public String addProduct(@Valid @ModelAttribute("product")Product product,BindingResult result,@RequestParam("pimage") MultipartFile filedet,Model m)
 	{
+		
+		
+		if(result.hasErrors())
+		{
+			m.addAttribute("product",product);
+			m.addAttribute("catlist",this.listCategories());
+			m.addAttribute("suplist",this.listSuppliers());
+			m.addAttribute("listProduct", productDAO.listProducts());
+			Authentication auth=SecurityContextHolder.getContext().getAuthentication();	
+			m.addAttribute("role", auth.getAuthorities().toString());
+			
+			return "Product";
+		}
 		Product product1=new Product();
 		m.addAttribute(product1);
 		product.setViews(0);
@@ -99,11 +115,14 @@ public class ProductController
 		}
 		
 		//==>End of Image Uploading
-		
-		
+		m.addAttribute("product",product);
 		m.addAttribute("catlist",this.listCategories());
 		m.addAttribute("suplist",this.listSuppliers());
-		return "Product";	
+		m.addAttribute("listProduct", productDAO.listProducts());
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();	
+		m.addAttribute("role", auth.getAuthorities().toString());
+		
+		return "redirect:/product";	
 	}
 
 
@@ -119,7 +138,7 @@ public class ProductController
 		return catlist;
 	}
 	
-	public LinkedHashMap<Integer,String> listSuppliers() // it is showing the category list
+	public LinkedHashMap<Integer,String> listSuppliers() // it is showing the supplier list
 	{
 		List<Supplier> listSuppliers=supplierDAO.getSuppliers();
 		LinkedHashMap<Integer,String> suplist=new LinkedHashMap<Integer,String>();
@@ -165,7 +184,7 @@ public class ProductController
 		
 		m.addAttribute("ProductInfo",product);
 		m.addAttribute("categoryName",categoryName);
-		
+		//m.addAttribute("suppliername", supplierDAO.getSupplier(product.getSupplierId()).getSupplierName());
 		Authentication auth=SecurityContextHolder.getContext().getAuthentication();	
 		m.addAttribute("role", auth.getAuthorities().toString());
 		
@@ -175,6 +194,89 @@ public class ProductController
 		
 	}
 	
+	@RequestMapping("/updateProduct/{productId}")
+    public String updateCategory(@PathVariable("productId") int productId,Model m)
+    {
+		
+		
+    	Product product1=productDAO.getProduct(productId);
+    	
+    	
+    	
+    	List<Product> listProducts = productDAO.listProducts();
+    	m.addAttribute("listProducts", listProducts);
+    	m.addAttribute("productInfo", product1);
+    	m.addAttribute("catlist",this.listCategories());
+		m.addAttribute("suplist",this.listSuppliers());
+
+    	
+    	Authentication auth=SecurityContextHolder.getContext().getAuthentication();	
+		m.addAttribute("role", auth.getAuthorities().toString());
+    	
+    	return "UpdateProduct";
+    	
+    }
+    @RequestMapping(value="/UpdateProduct",method=RequestMethod.POST)
+	public String updateCategoryInDB(@ModelAttribute("product")Product product,@RequestParam("pimage") MultipartFile filedet,Model m)
+	{
+		//Category category=categoryDAO.getCategory(categoryId);
+		//category.setCategoryName(categoryName);
+		//category.setCateogryDesc(categoryDesc);
+    	String imagePath="C:\\Users\\IBM\\eclipse-workspace\\InteriorFront\\src\\main\\webapp\\resources\\images\\";
+		imagePath=imagePath+String.valueOf(product.getProductId())+".jpg";
+		File image=new File(imagePath);
+		
+		if(!filedet.isEmpty())
+		{
+			
+			try 
+			{
+				byte[] fileBuffer=filedet.getBytes();	
+				FileOutputStream fos=new FileOutputStream(image);
+				BufferedOutputStream bs=new BufferedOutputStream(fos);
+				bs.write(fileBuffer);
+				bs.close();
+			} catch (Exception e)
+			{
+				System.out.println("Exception Arised:"+e);
+				e.printStackTrace();
+			}
+			
+		}
+		else
+		{
+			System.out.println("Problem Occured in File Uploading");
+		}
+		productDAO.updateProduct(product);
+		
+		List<Product> listProducts=productDAO.listProducts();
+		m.addAttribute("listProducts",listProducts);
+		
+		return "redirect:/product";
+	}
 	
+    @RequestMapping(value="/Products/{catId}")
+    public String productByCategoryId(@PathVariable("catId")int catId,Model m)
+    {
+        m.addAttribute("listProducts", productDAO.listByCategory(catId));
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        m.addAttribute("role", auth.getAuthorities().toString());
+
+        return "ProductPage";
+    }
+    
+    @RequestMapping("/searchBy")
+    public String productBySearch(@RequestParam("search")String search,Model m) {
+        
+        List<Product> listProducts = productDAO.getBySearch(search);
+        m.addAttribute("listProducts", listProducts);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        m.addAttribute("role", auth.getAuthorities().toString());
+
+        return "ProductPage";
+
+    }
 }
 

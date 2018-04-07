@@ -2,6 +2,10 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
+<c:if test="${grandTotal==0}">
+	<c:redirect url="/"/>
+</c:if>
+
 <table align="center" class="table">
 	<tr class="danger">
 		<td colspan="4"><center>Your Order</center></td>	
@@ -51,8 +55,7 @@
 	      </tr>
 	    </table>
 	   </form> 
-	 </body>
-</html>
+	 <%@include file="footer.jsp"%>
 	      
 	      
 	      

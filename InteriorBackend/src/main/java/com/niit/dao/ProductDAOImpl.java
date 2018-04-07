@@ -93,5 +93,15 @@ public class ProductDAOImpl implements ProductDAO
 		List<Product> listProducts=(List<Product>)query.list();
 		return listProducts;
 	}
+	
+    
+    
+    public List<Product> getBySearch(String search) {
+        Session session=sessionFactory.openSession();
+        Query query=session.createQuery("from Product WHERE price < "+search+"");
+        List<Product> listProducts=(List<Product>)query.list();
+        return listProducts;
+    }
+
 
 }

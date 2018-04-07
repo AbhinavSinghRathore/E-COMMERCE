@@ -2,11 +2,14 @@ package com.niit.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,12 +46,24 @@ public class CategoryController {
 	}
 
 	@RequestMapping(value = "/InsertCategory", method = RequestMethod.POST)
-	public String insertCategoryData(@ModelAttribute("categoryInfo")Category category,
+	public String insertCategoryData(@Valid @ModelAttribute("categoryInfo")Category category,BindingResult result,
 			Model m) {
+		
+		List<Category> listCategories;
+		if(result.hasErrors())
+		{
+			listCategories = categoryDAO.getCategories();
+			Authentication auth=SecurityContextHolder.getContext().getAuthentication();	
+			m.addAttribute("role", auth.getAuthorities().toString());
+			m.addAttribute("listCategories", listCategories);
+			return "Category";
+		}
+			
 
 		categoryDAO.addCategory(category);
-
-		List<Category> listCategories = categoryDAO.getCategories();
+		listCategories = categoryDAO.getCategories();
+		Authentication auth=SecurityContextHolder.getContext().getAuthentication();	
+		m.addAttribute("role", auth.getAuthorities().toString());
 		m.addAttribute("listCategories", listCategories);
 		
 		return "Category";
@@ -62,10 +77,12 @@ public class CategoryController {
 	
 	categoryDAO.deleteCategory(category);
 	
-	List<Category> listCategories = categoryDAO.getCategories();
-	m.addAttribute("listCategories", listCategories);
-	m.addAttribute("categoryInfo", new Category());
-	return "Category";
+	//List<Category> listCategories = categoryDAO.getCategories();
+	//m.addAttribute("listCategories", listCategories);
+	//m.addAttribute("categoryInfo", new Category());
+	Authentication auth=SecurityContextHolder.getContext().getAuthentication();	
+	m.addAttribute("role", auth.getAuthorities().toString());
+	return "redirect:/category";
 	
     }
     
@@ -100,6 +117,14 @@ public class CategoryController {
 		
 		return "redirect:/category";
 	}
+   /* @RequestMapping("/shopbycategory")
+    public String shopbyCategory(Model m)
+    {
+    	return "";
+    	
+    }*/
+    }
+
+    
 
 
-}

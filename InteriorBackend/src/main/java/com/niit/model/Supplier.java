@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table
 public class Supplier {
@@ -12,9 +14,17 @@ public class Supplier {
 	@Id
 	@GeneratedValue
 private int supplierId;
+	@NotBlank(message="*supplier name cannot be null")
 	private String supplierName;
-	private String supplierInfo;
+	@NotBlank(message="*Supplier description cannot be null")
+	private String supplierDesc;
 	
+	public String getSupplierDesc() {
+		return supplierDesc;
+	}
+	public void setSupplierDesc(String supplierDesc) {
+		this.supplierDesc = supplierDesc;
+	}
 	public int getSupplierId() {
 		return supplierId;
 	}
@@ -27,12 +37,7 @@ private int supplierId;
 	public void setSupplierName(String supplierName) {
 		this.supplierName = supplierName;
 	}
-	public String getSupplierInfo() {
-		return supplierInfo;
-	}
-	public void setSupplierInfo(String supplierInfo) {
-		this.supplierInfo = supplierInfo;
-	}
+	
 	
 
 }

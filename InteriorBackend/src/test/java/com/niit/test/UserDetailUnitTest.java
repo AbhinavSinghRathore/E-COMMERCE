@@ -27,6 +27,12 @@ public class UserDetailUnitTest {
 		userDetailDAO=(UserDetailDAO)context.getBean("userDetailDAO");
 	}
 	
+	
+	@Test
+	public void getuserTest() {
+		assertNotNull("Somthing went wrong", userDetailDAO.getUserByUserName("Hp"));
+	}
+	
 	@Ignore
 	@Test
 	public void registerUser()
@@ -52,7 +58,7 @@ public void updateDetail()
 		ud.setCustomerName("Singh");
 		
 }
-	
+	@Ignore
 	@Test
 	public void getlisttest() {
 		List<UserDetail> ulist=userDetailDAO.getAllUser();

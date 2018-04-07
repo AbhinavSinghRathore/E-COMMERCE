@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table
 public class UserDetail
@@ -15,16 +17,16 @@ public class UserDetail
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
-	@NotNull(message="*Username can not be null.")
+	@NotBlank(message="*Username can not be null.")
 	private String username;
-	@NotNull(message="*Password can not be null.")
+	@NotBlank(message="*Password can not be null.")
 	private String password;
 	private String role;
 	private boolean enabled;
 
 	private String customerName;
 	private String mobileNo;
-	@NotNull(message="*Email Address can not be null.")
+	@NotBlank(message="*Email Address can not be null.")
 	private String emailId;
 	private String address;
 	public int getUserId() {
@@ -80,6 +82,12 @@ public class UserDetail
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	@Override
+	public String toString() {
+		return "UserDetail [userId=" + userId + ", username=" + username + ", password=" + password + ", role=" + role
+				+ ", enabled=" + enabled + ", customerName=" + customerName + ", mobileNo=" + mobileNo + ", emailId="
+				+ emailId + ", address=" + address + "]";
 	}
 
 	

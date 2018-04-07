@@ -1,4 +1,5 @@
 <%@ include file="Header.jsp" %>
+<div class="cont">
 
 <table align="center" class="table">
     <tr class="danger">
@@ -16,6 +17,6 @@
 
 </c:forEach>
 </tr>
-</table>      
-</body>
-</html>
+</table> 
+</div>     
+<%@include file="footer.jsp"%>

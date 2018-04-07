@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.niit.model.Category;
 import com.niit.model.Supplier;
 import com.niit.dao.SupplierDAO;
 
@@ -46,8 +47,40 @@ public class SupplierDAOImpl implements SupplierDAO {
 		Supplier supplier=(Supplier)session.get(Supplier.class,supplierId);
 		return supplier;
 	}
-
-
+	@Transactional
+	public boolean deleteSupplier(Supplier supplier) 
+	{	
+		try
+		{
+		sessionFactory.getCurrentSession().delete(supplier);
+		return true;
+		}
+		catch(Exception e)
+		{
+		System.out.println("Exception Arised:"+e);
+		return false;
+		}
+	}
+	
+	//updateCategory()
+	@Transactional
+	
+	public boolean updateSupplier(Supplier supplier) 
+	{	
+		try
+		{
+		sessionFactory.getCurrentSession().update(supplier);
+		return true;
+		}
+		catch(Exception e)
+		{
+		System.out.println("Exception Arised:"+e);
+		return false;
+		}
+	}
+	
+	
+	
 	
 	//deleteCategory()
 	@Transactional

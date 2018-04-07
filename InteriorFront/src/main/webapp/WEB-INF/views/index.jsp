@@ -1,4 +1,5 @@
-<%@include file="/WEB-INF/views/Header.jsp"%>
+.<%@include file="/WEB-INF/views/Header.jsp"%>
+<body>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -16,7 +17,7 @@
 					<img class="first-slide" src="<c:url value="/resources/images/banner/${category.categoryId}.jpg"/>" alt="First slide" style="height: 25rem;" />
 					<div class="container">
 						<div class="carousel-caption">
-							<h1>${category.categoryName}.</h1>
+							<h1 style="color:black">Trending ${category.categoryName}.</h1>
 							<p>${category.cateogryDesc}.</p>
 							<p>
 								<a class="btn btn-lg btn-primary" href="<c:url value="/${category.categoryId}/Trending"/>" role="button">Shop Now</a>
@@ -31,7 +32,7 @@
 					<img class="second-slide" src="<c:url value="/resources/images/banner/${category.categoryId}.jpg"/>" alt="second slide" style="height: 25rem;" />
 					<div class="container">
 						<div class="carousel-caption">
-							<h1>${category.categoryName}.</h1>
+							<h1>Trending ${category.categoryName}.</h1>
 							<p>${category.cateogryDesc}.</p>
 							<p>
 								<a class="btn btn-lg btn-primary" href="<c:url value="/${category.categoryId}/Trending"/>" role="button">Shop Now</a>
@@ -46,7 +47,7 @@
 					<img class="third-slide" src="<c:url value="/resources/images/banner/${category.categoryId}.jpg"/>" alt="third slide" style="height: 25rem;" />
 					<div class="container">
 						<div class="carousel-caption">
-							<h1>${category.categoryName}.</h1>
+							<h1>Trending ${category.categoryName}.</h1>
 							<p>${category.cateogryDesc}.</p>
 							<p>
 								<a class="btn btn-lg btn-primary" href="<c:url value="/${category.categoryId}/Trending"/>" role="button">Shop Now</a>
@@ -68,5 +69,5 @@
 		aria-hidden="true"></span> <span class="sr-only">Next</span>
 	</a>
 </div>
-
+</body>
 <%@include file="footer.jsp"%>

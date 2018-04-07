@@ -11,6 +11,7 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
     
     <mvc:annotation-driven/>
+    <mvc:annotation-driven ignore-default-model-on-redirect="true" />
     
     <context:component-scan base-package="com.niit.*"/>
      
@@ -26,6 +27,6 @@
         </property>
     </bean>  
 <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	<property name="maxUploadSize" value="200000"/>
+	<property name="maxUploadSize" value="300000"/>
 </bean>
 </beans>
