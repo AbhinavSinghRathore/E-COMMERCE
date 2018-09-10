@@ -10,6 +10,8 @@
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context.xsd">
     
+    
+    <!-- mapping is done through dispatcher servlet ony  dispatcherxml- contains the info of default mapping or user defined mapping to controller,view resolver and certain other mapping info -->
     <mvc:annotation-driven/>
     <mvc:annotation-driven ignore-default-model-on-redirect="true" />
     

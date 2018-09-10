@@ -13,16 +13,28 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.niit.dao.ProductDAO;
+import com.niit.dao.UserDetailDAO;
+import com.niit.email.Emailsend;
 import com.niit.model.Product;
+import com.niit.model.UserDetail;
 
 @Controller
 public class UserController
 {
+	@Autowired
+    private HttpSession httpSession;
 	
 	@Autowired
 	ProductDAO productDAO;
+	@Autowired
+	UserDetailDAO userDetailDAO;
+	@Autowired
+	UserDetail userDetail;
+	
+	
 	
 	
 	@RequestMapping("/UserHome")
@@ -36,10 +48,12 @@ public class UserController
 		return "UserHome";
 	}
 	
-     @RequestMapping("/login_success")
+     @SuppressWarnings("unchecked")
+	@RequestMapping("/login_success")
      public String showHomePage(HttpSession session,Model m)
      {
-    	  String page="";
+    	  @SuppressWarnings("unused")
+		String page="";
     	  boolean loggedIn;
     	  
     	  //Retrieving Username
@@ -48,7 +62,9 @@ public class UserController
     	  
     	  String username=authentication.getName();
     	  
-    	  //Role
+    	  httpSession.setAttribute("loggedInUserId",userDetail.getEmailId() );
+    	  
+    	  //Now v will decide the role of user GA contains-all the authrts or all the roles
     	  
     	  Collection<GrantedAuthority> roles=(Collection<GrantedAuthority>)authentication.getAuthorities();
     			  
@@ -81,4 +97,32 @@ public class UserController
     
     	  
      }
+     
+          
+     @RequestMapping("/forgetpassword")
+ 	public String showPassword(Model m)
+ 	{
+ 		
+ 		Authentication auth=SecurityContextHolder.getContext().getAuthentication();
+ 		m.addAttribute("role", auth.getAuthorities().toString());
+ 		return "/Forgetpssrd";
+ 		
+ 	}
+           @RequestMapping("/password-change")
+          public String forgetpsswrd(@RequestParam("email")String email)
+          {
+        	   
+        	     List<UserDetail> UserList=userDetailDAO.getAllUser();
+        	     
+        	     for(UserDetail ud: UserList)
+        	     {
+        	    	if(ud.getEmailId().equals(email)) 
+        	    	{
+        	    		String DESC=ud.getPassword();
+        	    		Emailsend.sendMail(email,"abhi9singh202@gmail.com","User-Password", DESC);
+        	    	}
+        	     }
+        	     
+        	   return "redirect:/";
+          }
 }

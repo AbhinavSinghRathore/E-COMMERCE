@@ -4,6 +4,8 @@
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
          
+         <!-- Whenever SERVER will receive any req it will first read the web.xml file of web app then it will redirect to dispather servlet -->
+         
            <display-name>Archetype Created Web Application</display-name>
   <servlet>
       <servlet-name>dispatcher</servlet-name>
@@ -27,9 +29,13 @@
   
   <listener>
       <listener-class>
-          org.springframework.web.context.ContextLoaderListener
+          org.springframework.web.context.ContextLoaderListener <!-- from here only dispatcher servlet loads the mapping -->
       </listener-class>
   </listener>
+  
+  
+  <!-- to implement SPRING SECURITY v need to add SS filter here
+   this filter allows any web url request which coming is to application needs to b pass through here -->
   
     <filter>
 	<filter-name>springSecurityFilterChain</filter-name>
@@ -37,7 +43,7 @@
 </filter>
 <filter-mapping>
 	<filter-name>springSecurityFilterChain</filter-name>
-	<url-pattern>/*</url-pattern>
+	<url-pattern>/*</url-pattern> <!-- this pattern says that evrythng tht is req shld go through SFC -->
 </filter-mapping>
 
 <error-page>

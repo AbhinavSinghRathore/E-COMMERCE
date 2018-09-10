@@ -266,10 +266,24 @@ public class ProductController
         return "ProductPage";
     }
     
-    @RequestMapping("/searchBy")
-    public String productBySearch(@RequestParam("search")String search,Model m) {
+   /* @RequestMapping("/searchBy")
+    public String productBySearch(@RequestParam("price")int price,Model m) {
         
-        List<Product> listProducts = productDAO.getBySearch(search);
+    	List<Product> listProducts=null;
+    	switch(price) {
+    	case 1:listProducts=productDAO.getByFilter(5000, 10000);
+    		break;
+    	case 2:listProducts=productDAO.getByFilter(10000, 20000);
+		break;
+    	case 3:listProducts=productDAO.getByFilter(20000, 30000);
+		break;
+    	case 4:listProducts=productDAO.getByFilter(30000, 40000);
+		break;
+    	case 5:listProducts=productDAO.getByFilter(40000,999999);
+		break;
+    	}
+    	
+        
         m.addAttribute("listProducts", listProducts);
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
@@ -277,6 +291,6 @@ public class ProductController
 
         return "ProductPage";
 
-    }
+    }*/
 }
 

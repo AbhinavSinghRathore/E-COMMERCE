@@ -45,6 +45,8 @@ public class CartController
 		cartItem.setPaymentStatus("NP");
 		cartItem.setSubtotal(quantity*product.getPrice());
 		
+		cartItem.setProduct(product);
+		
 		cartDAO.addCartItem(cartItem);
 		
 		List<CartItem> listCartItems=cartDAO.getCartItems(username);

@@ -7,9 +7,11 @@
 	<center>
 		<table class="table table-hover success">
 			<tr>
-				<td rowspan="6"><img
+				<td rowspan="7"><center><img
 					src="<c:url value="/resources/images/${ProductInfo.productId}.jpg"/>"
-					width="200" height="200" /></td>
+					width="200" height="200" /></center></td>
+					</tr>
+				<tr>	
 				<td>Product ID</td>
 				<td>${ProductInfo.productId}</td>
 			</tr>

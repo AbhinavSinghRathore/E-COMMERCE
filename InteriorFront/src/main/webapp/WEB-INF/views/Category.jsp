@@ -57,7 +57,7 @@
 			<tr>
 
 				<td>${category.categoryId}</td>
-				<td>${category.categoryName}</td>
+				<td color="red">${category.categoryName}</td>
 				<td>${category.cateogryDesc}</td>
 				<td><a
 					href="<c:url value="/updateCategory/${category.categoryId}"/>"><strong>Update</strong></a>&nbsp;/&nbsp;

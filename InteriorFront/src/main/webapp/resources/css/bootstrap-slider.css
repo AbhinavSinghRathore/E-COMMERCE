@@ -89,7 +89,7 @@
 .slider.slider-horizontal .slider-tick-label-container .slider-tick-label {
   padding-top: 4px;
   display: inline-block;
-  text-align: center;
+  text-align: left;
 }
 .slider.slider-horizontal .tooltip {
   -ms-transform: translateX(-50%);

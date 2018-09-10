@@ -22,12 +22,12 @@ import com.niit.model.Category;
 @Controller
 public class CategoryController {
 	@Autowired
-	CategoryDAO categoryDAO;
+	private CategoryDAO categoryDAO;
 
 
 
 	@RequestMapping("/category")
-	public String showCategory(Model m)
+	public String showCategory(Model m)//to add object in JSP
 	{
 	    List<Category> listCategories = categoryDAO.getCategories();
 		m.addAttribute("listCategories", listCategories);
@@ -44,10 +44,10 @@ public class CategoryController {
 
 		return "Category";
 	}
-
+                                            /* v can pas string only by default method is get*/
 	@RequestMapping(value = "/InsertCategory", method = RequestMethod.POST)
 	public String insertCategoryData(@Valid @ModelAttribute("categoryInfo")Category category,BindingResult result,
-			Model m) {
+			Model m) {                                  //categoryInfo-it will have the instance of JB
 		
 		List<Category> listCategories;
 		if(result.hasErrors())
@@ -60,7 +60,7 @@ public class CategoryController {
 		}
 			
 
-		categoryDAO.addCategory(category);
+		categoryDAO.addCategory(category);//to insert the the query through command name
 		listCategories = categoryDAO.getCategories();
 		Authentication auth=SecurityContextHolder.getContext().getAuthentication();	
 		m.addAttribute("role", auth.getAuthorities().toString());

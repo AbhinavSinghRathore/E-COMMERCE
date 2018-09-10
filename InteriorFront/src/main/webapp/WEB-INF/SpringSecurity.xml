@@ -17,10 +17,22 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
 http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security.xsd">                                                   
 
+
+    <!-- SS will check spring container-
+                       1-Any req goes to webxml then it goes SS.xml
+                       2-Filter chain will access the request
+                       3-Whatever v have given in FORM ACTION it has to be here in SS.xml -->
+                  
+
 <security:http auto-config="true" use-expressions="true">
+ 
+  <!-- HTTPSECTION -->
+    <!-- Specifies which type of URL is to be accessed by which role and which type of authentication can be implemented -->
 
 	<security:intercept-url pattern="/product/**" access="hasRole('ROLE_ADMIN')"/>
-	<security:intercept-url pattern="/addtoCart/**" access="hasRole('ROLE_USER')"/>	
+	<security:intercept-url pattern="/addtoCart/**" access="hasRole('ROLE_USER')"/>
+	<security:intercept-url pattern="/Cart/**" access="hasRole('ROLE_USER')"/>
+	<security:intercept-url pattern="/myprofile/**" access="hasRole('ROLE_USER')"/>	
 	<security:form-login login-page="/login" default-target-url="/" 
 	login-processing-url="/perform_login" authentication-failure-url="/login?error"
 	 authentication-success-forward-url="/login_success"/> 
@@ -29,7 +41,7 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 	 <security:csrf disabled="true"/>
 	 
 </security:http>
-
+<!-- AUTHENTICATION MANAGER-SPECIFIES data from where authentication can be done -->
 <security:authentication-manager>
 	<security:authentication-provider>
 
